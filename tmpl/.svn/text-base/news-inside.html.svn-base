@@ -1,0 +1,49 @@
+{% extends "base2.html" %}
+{%block top_menu%}
+      {% include "top_menu.html" %}
+{%endblock%}
+
+{%block second_menu%}
+      {% include "second_menu.html" %}
+{%endblock%}
+
+{%block content%}
+    <div id="cont_main">
+    	
+        <div id="art_news_pr">    	
+        <div id="full_news">
+    	<div id="art_news_title"><h2>{{title}}</h2></div>
+        <div id="art_news_date"><h4>{{pub_date|date:"d.m.Y"}}</h4></div>
+<!--        <div id="news_pr_img"></div>-->
+        <div id="news_fulltext2" ><p>
+                  {% autoescape off %}
+			{{text}}   
+                  {% endautoescape %}
+        </p>
+<div id="read"><a class="white_link" href="javascript:back()">вернуться</a></div>
+</div>
+        
+        </div>        
+    	</div>
+        
+  
+	</div><!-- end of cont_main -->
+                <script>
+                        $('#news_fulltext2  img').each(function() {
+                                var Src  =  $(this).attr("src");
+                                $(this).attr("data-zoom-image" ,Src);
+                                $(this).elevateZoom({tint:true, tintColour:'#F90', tintOpacity:0.5});
+                        });                
+                </script>
+	
+{%endblock%}
+
+{%block bottom_menu%}
+    {% include "bottom_menu.html" %}
+{%endblock%}
+{%block bottom_news%}
+    {% include "bottom_news.html" %}
+{%endblock%}
+{%block projects%}
+    {% include "projects_block.html" %}
+{%endblock%}

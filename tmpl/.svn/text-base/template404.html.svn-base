@@ -1,0 +1,31 @@
+{% extends "base2_without_menu2.html" %}
+
+{%block top_menu%}
+      {% include "top_menu.html" %}
+{%endblock%}
+
+ 
+{%block content%} 
+<div id="cont_main_gal">
+<div id="contact_block">
+      
+      Извините мы ничего не нашли может попробует вернуться на стартовую <a href="/">страницу</a>
+
+	    
+	    
+  
+</div>
+</div>    
+    
+{%endblock%}	
+
+{%block bottom_menu%}
+    {% include "bottom_menu.html" %}
+{%endblock%}
+{%block bottom_news%}
+    {% include "bottom_news.html" %}
+{%endblock%}
+{%block projects%}
+    {% include "projects_block.html" %}
+{%endblock%}
+ 

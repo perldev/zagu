@@ -1,0 +1,29 @@
+{% extends "base2.html" %}
+
+{%block top_menu%}
+      {% include "top_menu.html" %}
+{%endblock%}
+
+{%block second_menu%}
+      {% include 'second_menu.html' %}
+{%endblock%}
+
+
+   
+{%block content%}    	
+<div id="cont_main_prod">     
+
+</div>               	
+{%endblock%}
+
+{%block bottom_menu%}
+    {% include "bottom_menu.html" %}
+{%endblock%}
+{%block bottom_news%}
+    {% include "bottom_news.html" %}
+{%endblock%}
+{%block projects%}
+    {% include "projects_block.html" %}
+{%endblock%}
+
+
