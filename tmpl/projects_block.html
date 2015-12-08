@@ -1,0 +1,8 @@
+<div id="news_bot_title"><p>Проекты</p></div>
+        		<div id="gal_bot">
+			 {%for item in projects%}
+			      <div class="image_bot"><a href="/project/{{ item.article.id }}">
+			      <img width="75" height="75" src="{{ item.get_tiny }}" /></a></div>
+			 {%endfor%} 
+
+</div>

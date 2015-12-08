@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{%block top_menu%}
+      {% include "top_menu.html" %}
+{%endblock%}
+
+
+{% block content %}
+        <div id="left_index">    	
+        <div id="art_main">
+    	<div id="art_main_title"><h2>{{pagetitle}}</h2></div>
+        <div id="art_main_text">
+        <p>
+        {% autoescape off %}
+	      {{text}}
+        {% endautoescape %}
+        
+        </p>
+
+</div>
+		
+		<!--link to article--><div id="grey_but"><a href="/article/{{id}}"><img src="/img/but1.jpg"></a></div>
+        </div>        
+        <a href="/img/zaguweb.pdf" target='_blank'><div id="cat_main"></div></a>
+        <div id="cat_but"><a href="/img/zaguweb.pdf" target='_blank'><img src="/img/but3.jpg"></a></div>   
+    	</div>
+        
+        <!-- last three new event-->
+        <div id="right_index">
+		 {% include  "news_middle.html" %}
+                {% include  "block_projects.html" %}
+                
+        </div>      
+        <script>
+            slider.init(
+            [
+            {%for item in sliders %}
+                    {"title":"{{item.title|safe}}","desc":"{{item.text|safe}}","path":"{{item.get_small}}"},
+            {% endfor %}
+            ]
+            ,
+            5000)
+        
+        
+        </script>
+        
+{%endblock%}
+
+{%block bottom_menu%}
+    {% include "bottom_menu.html" %}
+{%endblock%}
+{%block bottom_news%}
+    {% include "bottom_news.html" %}
+{%endblock%}
+{%block projects%}
+    {% include "projects_block.html" %}
+{%endblock%}
+                
