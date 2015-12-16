@@ -1,0 +1,90 @@
+{% extends "base2.html" %}
+{% block top_menu %}
+    {% include "top_menu.html" %}
+{% endblock %}
+
+{% block second_menu %}
+    {% include 'second_menu.html' %}
+{% endblock %}
+
+{% block content %}
+    <div id="cont_main_prod">
+
+        <div id="art_news_pr">
+            <div id="catalog">
+                <div id="art_news_title"><h2>{{ title }}</h2></div>
+                <div class="left">
+                    {% autoescape off %}
+                        {% for item in list1 %}
+                            <div class="item">
+                                <a href="{% url 'catalog_item' item.id %}">
+                                    <img id="img_{{ item.id }}_catalog" class="cat_img" width="120" src="{{ MEDIA_URL }}{{ item.thumb.path }}"
+                                         alt="{{ item.title }}" data-zoom-image="{{ MEDIA_URL }}{{ item.thumb.path }}"/>
+                                </a>
+
+                                <div class="item_desc">
+                                    <p class="head">
+                                        <a href="{% url 'catalog_item' item.url %}" title="{{ item.title }}">
+                                            {{ item.title }}
+                                        </a>
+                                    </p>
+
+                                    <p>{{ item.text }}</p>
+
+                                    <p>{{ item.power }}</p>
+                                </div>
+
+                                <div class="bottom">
+                                    <p><strong>Цена:</strong> {{ item.price }} {{ item.currency }}</p>
+
+                                    <p>
+                                        <a href="{% url 'catalog_item' item.url %}" title="{{ item.title }}"> Подробнее </a>
+                                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        </div>
+                        <div class="right">
+                        {% for item in list2 %}
+                            <div class="item">
+                                <a href="{% url 'catalog_item' item.id %}">
+                                    <img id="img_{{ item.id }}_catalog" class="cat_img" width="120" src="{{ MEDIA_URL }}{{ item.thumb.path }}"
+                                         alt="{{ item.title }}" data-zoom-image="{{ MEDIA_URL }}{{ item.thumb.path }}">
+                                </a>
+
+                                <div class="item_desc">
+                                    <p class="head"><a href="{% url 'catalog_item' item.url %}">{{ item.title }}</a></p>
+                                    <p>{{ item.text }}</p>
+                                    <p>{{ item.power }}</p>
+                                </div>
+
+                                <div class="bottom">
+                                    <p><strong>Цена:</strong> {{ item.price }} {{ item.currency }}</p>
+                                    <p>
+                                        <a href="{% url 'catalog_item' item.url %}" title="{{ item.title }}"> Подробнее </a>
+                                    </p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endautoescape %}
+                    </div>
+                <script>
+                    $('.cat_img').each(function () {
+                        $(this).elevateZoom({tint: true, tintColour: '#F90', tintOpacity: 0.5});
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block bottom_menu %}
+    {% include "bottom_menu.html" %}
+{% endblock %}
+{% block bottom_news %}
+    {% include "bottom_news.html" %}
+{% endblock %}
+{% block projects %}
+    {% include "projects_block.html" %}
+{% endblock %}
+

@@ -1,0 +1,59 @@
+{% extends "base2.html" %}
+{% block top_menu %}
+    {% include "top_menu.html" %}
+{% endblock %}
+
+{% block second_menu %}
+    {% include 'second_menu.html' %}
+{% endblock %}
+
+
+
+{% block content %}
+    <div id="cont_main_prod">
+
+        <div id="art_news_pr">
+            <div id="catalog">
+                <div id="art_news_title"><h2>{{ item.title }}</h2></div>
+                <div class="left" style="width:800px;height:220px">
+                    {% autoescape off %}
+                        <div class="item">
+                            <img id="img_{{ item.id }}_catalog" class="cat_img" width="120" src="{{ MEDIA_URL }}{{ item.thumb.path }}"
+                                 alt="{{ item.title }}" data-zoom-image="{{ MEDIA_URL }}{{ item.thumb.path }}"/>
+                            <p>{{ item.text }}</p>
+                            <p>{{ item.power }}</p>
+                            <p><strong>Цена:</strong>
+                                <h2> {{ item.price }} {{ item.currecy }}</h2>
+                            </p>
+                        </div>
+                        </div>
+                        <div class="images">
+                        {% for item in additional_images %}
+                            <div>
+                                <img class="cat_img" height="120" src="{{ MEDIA_URL }}{{ item.path }}" alt="{{ item.title }}"
+                                        data-zoom-image="{{ MEDIA_URL }}{{ item.path }}"/>
+                            </div>
+                        {% endfor %}
+                    {% endautoescape %}
+                    </div>
+
+                <script>
+                    $('.cat_img').each(function () {
+                        $(this).elevateZoom({tint: true, tintColour: '#F90', tintOpacity: 0.5});
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block bottom_menu %}
+    {% include "bottom_menu.html" %}
+{% endblock %}
+{% block bottom_news %}
+    {% include "bottom_news.html" %}
+{% endblock %}
+{% block projects %}
+    {% include "projects_block.html" %}
+{% endblock %}

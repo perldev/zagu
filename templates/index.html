@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static staticfiles %}
+{% block top_menu %}
+    {% include "top_menu.html" %}
+{% endblock %}
+
+
+{% block content %}
+    <div id="left_index">
+        <div id="art_main">
+            <div id="art_main_title"><h2>{{ pagetitle }}</h2></div>
+            <div id="art_main_text">
+                <p>
+                    {% autoescape off %}
+                        {{ text }}
+                    {% endautoescape %}
+                </p>
+            </div>
+
+            <!--link to article-->
+            <div id="grey_but"><a href="{% url 'get_article' article.url %}"><img src="{% static 'images/but1.jpg' %}"></a></div>
+        </div>
+        <a href="{{ MEDIA_URL }}zaguweb.pdf" target='_blank'>
+            <div id="cat_main"></div>
+        </a>
+
+        <div id="cat_but">
+            <a href="{{ MEDIA_URL }}zaguweb.pdf" target='_blank'>
+                <img src="{% static 'images/but3.jpg' %}">
+            </a>
+        </div>
+    </div>
+
+    <!-- last three new event-->
+    <div id="right_index">
+        {% include "news_middle.html" %}
+        {% include "block_projects.html" %}
+        {% include "banner2.html" %}
+    </div>
+    <script>
+        slider.init(
+            [{%for item in sliders %}
+                {"title": "{{ item.title|safe }}", "desc": "{{ item.text|safe }}", "path": "{{ item.get_small }}"},
+            {% endfor %}
+            ], 5000
+        )
+    </script>
+
+{% endblock %}
+
+{% block bottom_menu %}
+    {% include "bottom_menu.html" %}
+{% endblock %}
+{% block bottom_news %}
+    {% include "bottom_news.html" %}
+{% endblock %}
+{% block projects %}
+    {% include "projects_block.html" %}
+{% endblock %}
+                

@@ -1,0 +1,91 @@
+{% extends "base2_without_menu2.html" %}
+
+{% block top_menu %}
+    {% include "top_menu.html" %}
+{% endblock %}
+
+
+{% block content %}
+    <div id="cont_main_gal">
+        <div id="contact_block">
+            <div class="contact_form">
+                <div id="caption_cont"><h2>Обратная связь</h2></div>
+                <br><br>
+
+                <div>
+                    <form id="feedback_form" method="POST" action="{% url 'send_feedback' %}">
+                        {% if error_back_email %}
+                            <p style="color:red"> Введите пожайлуста email </p>
+
+                        {% endif %}
+                        {% if error_bad_email %}
+                            <p style="color:red"> Введите пожайлуста корректный email </p>
+
+                        {% endif %}
+                        {% if text_error %}
+                            <p style="color:red"> Введите пожайлуста текст сообщения </p>
+
+                        {% endif %}
+                        {% if error_captcha %}
+                            <p style="color:red"> Вы неправильно ввели проверочный текст </p>
+
+                        {% endif %}
+
+
+                        <p>Послать копию мне на email: <input name="send_copy" type="checkbox"></p>
+
+                        <p>Ваш email: <input class="text" name="send_copy_mail" type="text"></p>
+
+                        <p>Ваше сообщение :</p>
+
+                        <p>
+                            <textarea name="text" rows="10" cols="40"></textarea>
+                        </p>
+                        <!--
+                             <noscript>
+                             <iframe src="http://www.google.com/recaptcha/api/noscript?k=6LfofeQSAAAAAEsDlUfYLvypaUsiatJrrEgnSfpm"
+                                 height="200" width="500" frameborder="0"></iframe><br>
+                             <textarea name="recaptcha_challenge_field" rows="3" cols="40">
+                             </textarea>
+                             <input type="hidden" name="recaptcha_response_field"
+                                 value="manual_challenge">
+                             </noscript>
+                             <script type="text/javascript"
+                             src="http://www.google.com/recaptcha/api/challenge?k=6LfofeQSAAAAAEsDlUfYLvypaUsiatJrrEgnSfpm">
+                             </script>
+                             <script type="text/javascript">
+                             var RecaptchaOptions = {
+                                 theme : 'clean'
+                             };
+                             </script>-->
+
+
+                        <p>
+
+                        <div style="float:right; margin-right:240px;margin-bottom:50px">
+                            <button class="button"
+                                    onclick="document.getElementById('feedback_form').submit()" alt="">Отправить
+                            </button>
+                        </div>
+                        </p>
+                    </form>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block bottom_menu %}
+    {% include "bottom_menu.html" %}
+{% endblock %}
+{% block bottom_news %}
+    {% include "bottom_news.html" %}
+{% endblock %}
+{% block projects %}
+    {% include "projects_block.html" %}
+{% endblock %}
+ 

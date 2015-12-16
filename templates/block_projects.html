@@ -1,0 +1,16 @@
+{% load static %}
+<div id="last">
+    <div id="last_main_title"><h2>Наши проекты</h2></div>
+    <div id="gal">
+        {% for item in projects %}
+            <div class="image"><a href="{% url 'get_project' item.url %}">
+                <img height="150" width="150" src="{{ item.get_big }}"/></a>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="grey_but">
+        <a href="{% url 'projects' %}">
+            <img src="{% static 'images/but5.jpg' %}">
+        </a>
+    </div>
+</div>

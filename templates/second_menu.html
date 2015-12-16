@@ -1,0 +1,23 @@
+<div id="navbar_link_sec">
+    <ul id="second_menu">
+        {% for item in second_menu %}
+            <li {% if item.current == 1 %}class="currentpage2"{% endif %}>
+                <a href="{{ item.url_item }}">{{ item.title }}</a>
+                <ul class="prod_sub_menu">
+                    {% for sub_item in item.sub_items %}
+                        <li><a href="{{ sub_item.url_item }}">{{ sub_item.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</div><!-- end of navbar_link -->
+<!--        <li class="currentpage2"><a href='#'>ZAGU Classic</a></li>
+           <li><a href="#">ZAGU Pool</a></li>
+           <li><a href="#">ZAGU Exclusive</a></li>
+           <li><a href="#">ZAGU Kuga</a></li>
+           <li><a href="#">ZAGU Murris</a></li>
+           <li><a href="#">ZAGU Tea House</a></li>
+           <li><a href="#">Garden Lights</a></li>      
+      -->
+      

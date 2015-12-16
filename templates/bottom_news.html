@@ -1,0 +1,19 @@
+<div id="news_bot_title"><p>Новости</p></div>
+{% for item in bot_news %}
+    <div id="news_text_bot">
+        <p>
+            <a href="{% url 'news_article' item.url %}">{{ item.title }}</a>
+        </p>
+    </div>
+    {% comment %}
+        <div id="read">
+            <a href="/news_article/{{item.id}}" class="white_link">прочесть полностью</a>
+        </div>
+    {% endcomment %}
+{% endfor %}
+
+<!--<div id="news_bot_title"><p>Новости</p></div>
+                <div id="news_text_bot"><p>Закончен проект частного дома в поселке «Золотые ключи»...</p></div>
+                <div id="read"><a href="#"><img src="img/read.jpg"></a></div>
+                <div id="news_text_bot"><p>Запущен в работу большой проект по реконструкции Bartolomeo...</p></div>
+                <div id="read"><a href="#"><img src="img/read.jpg"></a></div>-->
